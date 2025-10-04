@@ -14,3 +14,4 @@ ebook
 https://ebook.online-convert.com/
 
 
+https://pandas.pydata.org/pandas-docs/version/1.4/pandas.pdf
