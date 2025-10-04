@@ -1,18 +1,18 @@
-print("\033c\033[43;30m\narray?")
-
 import tensorflow as tf
 import numpy as np
 
-# 1️⃣ Dados de treino
+# 1️⃣ Criar dados
 x_train = np.array([n for n in range(20)], dtype=float)
 y_train = np.array([n * 4 for n in range(20)], dtype=float)
 
-print("Entradas (x):", x_train)
-print("Saídas (y):", y_train)
+# Normalizar
+x_train_n = x_train / np.max(x_train)
+y_train_n = y_train / np.max(y_train)
 
-# 2️⃣ Modelo simples
+# 2️⃣ Modelo
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(units=1, input_shape=[1])
+    tf.keras.Input(shape=(1,)),
+    tf.keras.layers.Dense(units=1)
 ])
 
 # 3️⃣ Compilar
@@ -20,14 +20,14 @@ model.compile(optimizer='adam', loss='mean_squared_error')
 
 # 4️⃣ Treinar
 print("\nTreinando modelo...")
-model.fit(x_train, y_train, epochs=300, verbose=0)
+model.fit(x_train_n, y_train_n, epochs=1000, verbose=0)
 
 # 5️⃣ Testar
-print("\nTreino completo!")
 test_value = 10.0
-prediction = model.predict(np.array([[test_value]]))
-print(f"Predição para x={test_value}: y≈{prediction[0][0]:.2f}")
+prediction = model.predict(np.array([[test_value / np.max(x_train)]]))
+prediction_real = prediction[0][0] * np.max(y_train)
+print(f"\nPredição para x={test_value}: y≈{prediction_real:.2f}")
 
 # 6️⃣ Mostrar pesos
 weights = model.layers[0].get_weights()
-print(f"\nPeso aprendido: {weights[0][0][0]:.4f}, viés: {weights[1][0]:.4f}")
+print(f"Peso aprendido: {weights[0][0][0]:.4f}, viés: {weights[1][0]:.4f}")
