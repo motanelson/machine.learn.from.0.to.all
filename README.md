@@ -1,5 +1,4 @@
-# number.py
-number py lib
+machine learn from start to end
 
 notebook:
 
