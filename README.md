@@ -1,7 +1,9 @@
 machine learn from start to end
 
 notebook:
+the tensorflow only works on google
 
+https://colab.google/
 
 https://jupyter.org/try-jupyter/lab?path=notebooks%2FIntro.ipynb
 
@@ -12,9 +14,3 @@ ebook
 
 https://ebook.online-convert.com/
 
-
-https://pandas.pydata.org/pandas-docs/version/1.4/pandas.pdf
-
-https://www.tensorflow.org/?hl=us-us
-
-https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/quickstart/beginner.ipynb
