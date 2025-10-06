@@ -1,3 +1,4 @@
+print("\033c\033[43;30m\narray?")
 import tensorflow as tf
 import numpy as np
 
